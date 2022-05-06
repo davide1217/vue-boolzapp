@@ -25,3 +25,7 @@ img {
   font-size: .7rem;
   color: #B1B1B1;
 }
+
+.active {
+  background-color: #EAEAEA;
+}

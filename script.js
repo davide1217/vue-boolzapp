@@ -3,6 +3,14 @@ const app = new Vue({
 
   data: {
 
+    user: {
+        Name: 'Sofia',
+        avatar: '_io'
+    },
+
+    displayedIndex: 0,
+    neutralizer: 0,
+
     chats: [
       {
           name: 'Michele',
@@ -166,7 +174,7 @@ const app = new Vue({
           ],
       }
   ],
-  
+
   },
 
 
@@ -174,5 +182,10 @@ const app = new Vue({
     arrayLength(array) {
       return (array.length - 1);
     },
+
+    chatDisplayer(index) {
+        this.displayedIndex = index;
+        this.chats[index].visible = !this.chats[index].visible;
+    }
   }
 })

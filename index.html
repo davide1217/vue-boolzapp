@@ -19,15 +19,7 @@
 </head>
 <body>
 
-  <div id="container">
-
-    <!-- back ground -->
-    <div class="green"></div>
-    <div class="grey"></div>
-    <!-- / back ground -->
-
-  
-    <div id="app">
+    <div id="app" class="clearfix">
 
       <!-- container left -->
       <div id="container-left">
@@ -36,8 +28,8 @@
         <section class="header ">
 
           <div class="left">
-            <img src="img/avatar_io.jpg" alt="">
-            <span>Sofia</span>
+            <img :src="`img/avatar${user.avatar}.jpg`" alt="">
+            <span>{{user.Name}}</span>
           </div>
 
           <div class="right">
@@ -86,7 +78,7 @@
 
           <div class="chats">
 
-            <div v-for="(chat, index) in chats" class="chat">
+            <div v-for="(chat, index) in chats" class="chat" @click="chatDisplayer(index)" :class=" ( displayedIndex == index) ? 'active' : '' ">
 
               <img :src="'img/avatar' + chat.avatar + '.jpg'" alt="">
     
@@ -137,34 +129,23 @@
         <!-- chat room -->
         <section id="chat-room">
 
-          <div class="container">
-            <div class="sent message clearfix">
-              <div>
-                Hai portato a spasso il cane
-                <span>16:15</span>
-              </div>
-            </div>
-  
-            <div class="sent message clearfix">
-              <div>
-                Ricordati di stendere i panni
-                <span>16:15</span>
-              </div>
-            </div>
+          <div class="container clearfix">
             
-            <div class="received message">
-              <div>
-                Tutto fatto!
-                <span>16:15</span>
+            <template v-if="!chats[displayedIndex].visible">
+              <div v-for="(el, index) in chats[displayedIndex].messages" class="message" :class="el.status">
+                {{el.message}}
+                <span>{{el.date}}</span>
               </div>
-            </div>
-  
-            <div class="sent message clearfix">
-              <div>
-                lorem500
-                <span>16:15</span>
+            </template>
+            
+            <template v-else>
+              <div v-for="el in chats[0].messages" class="message" :class="el.status">
+                {{el.message}}
+                <span>{{el.date}}</span>
               </div>
-            </div>
+            </template>
+            
+
           </div>
 
           <div class="barra-laterale">
@@ -190,10 +171,8 @@
       <!-- / container right -->
 
     </div>
-  </div>
-  
-  
 
+  
   <script src="script.js"></script>
 </body>
 </html>
