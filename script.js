@@ -9,6 +9,7 @@ const app = new Vue({
     },
 
     displayedIndex: 0,
+
     nuovoMessaggio: '',
 
     chats: [
@@ -187,6 +188,57 @@ const app = new Vue({
         this.displayedIndex = index;
         this.chats[index].visible = !this.chats[index].visible;
     },
+
+    messageAdder() {
+        this.chats[this.displayedIndex].messages.push(
+            {
+                message: this.nuovoMessaggio,
+                date: this.createDate(),
+                status: 'sent',
+            });
+        this.nuovoMessaggio = '';
+
+        setTimeout(() => {
+            this.newAnswer()
+          }, 1000)
+
+    },
+    
+    newAnswer() {
+        
+        this.chats[this.displayedIndex].messages.push(
+            {
+                message: 'OK',
+                date: this.createDate(),
+                status: 'received',
+            }
+        );
+
+    },
+
+
+    createDate() {
+
+        const data = new Date();
+        let giorno = data.getDate();
+        let mese = data.getMonth() + 1;
+        let anno = data.getFullYear();
+        
+        const orario = new Date();
+        let ora = orario.getHours();
+        let minuti = orario.getMinutes();
+        let secondi = orario.getSeconds();
+
+        return `${this.aggiustaData(giorno)}/${this.aggiustaData(mese)}/${this.aggiustaData(anno)} ${this.aggiustaData(ora)}:${this.aggiustaData(minuti)}:${this.aggiustaData(secondi)}`
+    },
+
+    aggiustaData(data) {
+        if(parseInt(data) < 10) {
+            data = '0'+ data
+        }
+        return data
+    }
+
 
   }
 })
