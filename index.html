@@ -93,9 +93,9 @@
               <div class="contact">
                 <div>
                   {{chat.name}} <br>
-                  <Span>Ultimo messaggio inviato</Span>
+                  <span v-for="(el, index) in chat.messages" v-show="index === arrayLength(chat.messages)">{{el.message}}</span>
                 </div>
-                <span>12:00</span>
+                <span v-for="(el, index) in chat.messages" v-show="index === arrayLength(chat.messages)">{{el.date}}</span>
               </div>
 
             </div>

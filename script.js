@@ -165,8 +165,14 @@ const app = new Vue({
               }
           ],
       }
-  ]
+  ],
+  
+  },
 
 
+  methods: {
+    arrayLength(array) {
+      return (array.length - 1);
+    },
   }
 })

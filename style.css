@@ -166,6 +166,10 @@
   position: relative;
 }
 
+.contact > div:first-of-type {
+  line-height: 15px;
+}
+
 .contact > span {
   position: absolute;
   top: 0;
