@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="utility.css">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="container">
+
+    <!-- back ground -->
+    <div class="green"></div>
+    <div class="grey"></div>
+    <!-- / back ground -->
+
+  
+    <div id="app">
+
+      <!-- container left -->
+      <div id="container-left">
+
+        <!-- header -->
+        <section class="header ">
+
+          <div class="left">
+            <img src="img/avatar_io.jpg" alt="">
+            <span>Sofia</span>
+          </div>
+
+          <div class="right">
+            <i class="fa-solid fa-circle-notch"></i>
+            <i class="fa-solid fa-message"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+
+        </section>
+        <!-- / header -->
+
+
+        <!-- attiva notifiche -->
+        <section id="attiva-notifiche">
+
+          <div class="icon">
+            <i class="fa-solid fa-bell-slash"></i>
+          </div>
+
+          <div>
+            Ricevi notifiche di nuovi messaggi <br>
+            <span>Attiva notifiche desktop</span>
+          </div>
+
+        </section>
+        <!-- / attiva notifiche -->
+
+
+        <!-- search bar -->
+        <section id="search-bar">
+
+            <form action="">
+
+              <button><i class="fa-solid fa-magnifying-glass"></i></button>
+
+              <input type="text" placeholder="Cerca o inizia una nuova contact">
+
+            </form>
+
+        </section>
+        <!-- / search bar -->
+
+
+        <!-- chats -->
+        <section id="chats">
+
+          <div class="container">
+
+            <div class="chats">
+
+              <div v-for="(chat, index) in chats" class="chat">
+                <img :src="'img/avatar' + chat.avatar + '.jpg'" alt="">
+    
+                <div class="contact">
+                  <div>
+                    {{chat.name}} <br>
+                    <Span>Ultimo messaggio inviato</Span>
+                  </div>
+                  <span>12:00</span>
+                </div>
+              </div>
+
+            </div>
+  
+            <div class="barra-laterale">
+              <i class="fa-solid fa-caret-up"></i>
+              <i class="fa-solid fa-caret-down"></i>
+            </div>
+
+          </div>
+
+        </section>
+        <!-- / chats -->
+        
+      </div>
+      <!-- / container left -->
+
+      <!-- container right -->      
+      <div id="container-right">
+
+        <!-- header -->
+        <section class="header ">
+
+          <div class="left">
+            <img src="img/avatar_io.jpg" alt="">
+            <span>Sofia <br> <span>ultimo acceso oggi alle</span> </span>
+          </div>
+
+          <div class="right">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-paperclip"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+
+        </section>
+        <!-- / header -->
+
+
+        <!-- chat room -->
+        <section id="chat-room">
+
+          <div class="sent message clearfix">
+            <div>Hai portato a spasso il cane</div>
+          </div>
+
+          <div class="sent message clearfix">
+            <div>Ricordati di stendere i panni</div>
+          </div>
+          
+          <div class="received message">
+            <div>Tutto fatto!</div>
+          </div>
+
+          <div class="sent message clearfix">
+            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa qui nesciunt, adipisci enim, earum repellendus aperiam, sequi quisquam accusamus dolorum alias corrupti! A, deleniti itaque laboriosam animi ullam commodi fugit optio in id illum, eos provident aliquid aspernatur minima, maiores sunt sed voluptate nobis recusandae voluptas voluptatum hic! Aliquam officiis nam impedit, id nobis delectus dolores ullam eligendi hic eveniet. In dignissimos enim soluta voluptates vel vero illum explicabo minima eaque aut iusto quibusdam molestiae nihil, perspiciatis fugiat sequi sapiente unde ratione possimus tempora dolorum! Quia harum ipsum blanditiis inventore eum placeat nobis libero, velit sequi dicta, possimus ea? Asperiores hic odio eligendi incidunt! Fugit voluptas eius dolores est esse error fuga ducimus illo, officiis molestiae incidunt non. Laudantium, beatae tempore omnis at cupiditate aspernatur harum suscipit fuga cum quaerat debitis laboriosam repellendus modi fugit. Voluptate, saepe est perferendis dolores eos vel quia. Quod mollitia id illum fugit et minima eveniet possimus eos quia, ut beatae, dignissimos repellendus consequatur sint molestias architecto. Asperiores, placeat repellat repellendus incidunt est doloribus soluta fuga quam nesciunt. Ipsam, veritatis molestias ad, aliquid voluptatum dicta perferendis exercitationem at inventore maxime aperiam vero incidunt fugiat nobis delectus laudantium dolore? Molestiae magnam non, voluptatum asperiores ipsum eveniet minus eius mollitia architecto deserunt. Architecto quam voluptas nisi rerum, eaque aliquam eum vel cum similique soluta. Officiis a adipisci ratione quaerat! Repellendus vero quia deserunt quidem possimus hic ad odio veniam nobis facilis consectetur, amet expedita quasi eligendi dolorum deleniti non necessitatibus asperiores aperiam, pariatur quos dignissimos sequi debitis modi? Ut iste quo minima id molestiae officiis nesciunt unde voluptatibus suscipit earum ex animi odit, assumenda ab. Sunt adipisci ad sapiente suscipit earum esse architecto nisi, quod magnam eos blanditiis nam non cupiditate asperiores alias voluptatum doloremque placeat ipsum explicabo aliquid voluptatem eum? Rem, pariatur dolore. In nisi sunt, vel est nulla minus provident ratione voluptates atque libero similique asperiores, impedit soluta nostrum sit animi cupiditate. Adipisci qui blanditiis et tempore error veniam minima labore esse, obcaecati fugit laboriosam dignissimos iusto fuga quam, iure saepe autem! Reiciendis illo dicta rerum vitae deleniti culpa officia aut quam placeat quibusdam nostrum cumque voluptate corrupti, rem in maxime, dolor nihil eos a officiis totam molestias! Ducimus, saepe excepturi porro hic rerum nisi aliquam amet! Quod doloribus dolor atque tempore aperiam fuga aspernatur obcaecati dignissimos consectetur earum in tempora facilis enim, velit suscipit laudantium voluptas repudiandae expedita possimus repellat exercitationem nesciunt vitae optio. Adipisci iure nisi id ab commodi ut illo mollitia provident cum tempore praesentium obcaecati tenetur repellendus incidunt, consequuntur molestias, dolorem eos velit, at quod accusantium rerum. Reiciendis magni ipsum veniam voluptate? Natus dolorem officiis error architecto cum non, at consequatur illo quos, dicta fugiat magni perspiciatis unde placeat id nesciunt. Ea ad distinctio cupiditate officiis perferendis voluptatem libero consequatur ratione expedita modi illum rem voluptate deserunt eos velit, minus atque tempora officia doloremque maiores consectetur vel quia assumenda! Perspiciatis quam illum ad minus numquam facere, odio possimus dignissimos aliquid rem, autem saepe nobis asperiores qui, quasi sequi sed fugiat excepturi?</div>
+          </div>
+
+        </section>
+        <!-- / chat room -->
+
+
+        <!-- tastiera -->
+        <section id="tastiera">
+          <i class="fa-regular fa-face-smile"></i>
+
+          <input type="text" placeholder="Scrivi un messaggio">
+
+          <i class="fa-solid fa-microphone"></i>
+        </section>
+        <!-- / tastiera -->
+
+      </div>
+      <!-- / container right -->
+
+    </div>
+  </div>
+  
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
