@@ -136,19 +136,16 @@
 
 /* chats */
 #chats {
-  height: auto;
   background-color: white;
   flex-grow: 1;
+  display: flex;
   overflow-y: scroll;
 }
 
-#chats > .container {
- display: flex;
- height: 100%;
-}
-
 .chats {
-  width: 97%;
+  width: calc(100% - 12px);
+  height: 100%;
+  overflow-y: scroll;
 }
 
 .chat {
@@ -185,6 +182,13 @@
 #chat-room {
   flex-grow: 1;
   background-image: url(img/mine.jpg);
+  overflow-y: scroll;
+  display: flex;
+}
+
+#chat-room > .container {
+  width: calc(100% - 12px);
+  height: 100%;
   overflow-y: scroll;
 }
 

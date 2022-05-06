@@ -11,10 +11,9 @@ img {
 }
 
 .barra-laterale {
-  right: 0;
   background-color: #F1F1F1;
   height: 100%;
-  width: 3%;
+  width: 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
