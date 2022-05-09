@@ -88,11 +88,10 @@
               <div class="contact">
                 <div>
                   {{chat.name}} <br>
-                  <span>{{ultimoMessaggio(chat)}}</span>
+                  <span class="ultimo-msg">{{ultimoMessaggio(chat)}}</span>
                 </div>
                 <span>{{ultimoMessaggioOrario(chat)}}</span>
               </div>
-  
             </div>
 
           </div>
@@ -134,17 +133,35 @@
 
           <div class="container clearfix">
             
-            <template v-if="!chats[displayedIndex].visible">
+            <template v-if="!chats[displayedIndex].visible && chats[displayedIndex].messages.length > 0">
               <div v-for="(el, index) in chats[displayedIndex].messages" class="message" :class="el.status">
                 {{el.message}}
                 <span>{{el.date}}</span>
+
+                <div v-show="el.status == 'sent' " class="chevron-msg" tabindex="1">
+                  <i class="fa-solid fa-chevron-down"></i>
+                  <div class="drop-down">
+                    <div class="option">Info messaggio</div>
+                    <div @click="deleteMessage(index)" class="option">Cancella messaggio</div>
+                  </div>
+                </div>
+
               </div>
             </template>
             
-            <template v-else>
-              <div v-for="el in chats[0].messages" class="message" :class="el.status">
+            <template v-else="chats[displayedIndex].visible && chats[0].messages.length > 0">
+              <div v-for="(el, index) in chats[0].messages" class="message" :class="el.status">
                 {{el.message}}
                 <span>{{el.date}}</span>
+
+                <div v-show="el.status == 'sent' " class="chevron-msg" tabindex="1">
+                  <i class="fa-solid fa-chevron-down"></i>
+                  <div class="drop-down">
+                    <div class="option">Info messaggio</div>
+                    <div @click="deleteMessage(index)" class="option">Cancella messaggio</div>
+                  </div>
+                </div>
+
               </div>
             </template>
             
