@@ -65,7 +65,7 @@
 
               <button><i class="fa-solid fa-magnifying-glass"></i></button>
 
-              <input type="text" placeholder="Cerca o inizia una nuova contact">
+              <input type="text" v-model="chatCercata" placeholder="Cerca o inizia una nuova contact">
 
             </form>
 
@@ -78,18 +78,21 @@
 
           <div class="chats">
 
-            <div v-for="(chat, index) in chats" class="chat" @click="chatDisplayer(index)" :class=" ( displayedIndex == index) ? 'active' : '' ">
+            <div v-for="(chat, index) in chats" 
+            v-if=" chatCercata == '' || chat.name.toLowerCase('').includes(chatCercata)" 
+            class="chat" @click="chatDisplayer(index)" 
+            :class="{ 'active' : displayedIndex == index}">
 
               <img :src="'img/avatar' + chat.avatar + '.jpg'" alt="">
-    
+      
               <div class="contact">
                 <div>
                   {{chat.name}} <br>
-                  <span v-for="(el, index) in chat.messages" v-show="index === arrayLength(chat.messages)">{{el.message}}</span>
+                  <span>{{ultimoMessaggio(chat)}}</span>
                 </div>
-                <span v-for="(el, index) in chat.messages" v-show="index === arrayLength(chat.messages)">{{el.date}}</span>
+                <span>{{ultimoMessaggioOrario(chat)}}</span>
               </div>
-
+  
             </div>
 
           </div>

@@ -12,6 +12,8 @@ const app = new Vue({
 
     nuovoMessaggio: '',
 
+    chatCercata: '',
+
     chats: [
       {
           name: 'Michele',
@@ -180,8 +182,13 @@ const app = new Vue({
 
 
   methods: {
-    arrayLength(array) {
-      return (array.length - 1);
+      
+    ultimoMessaggio(chat){
+       return chat.messages[chat.messages.length - 1].message
+    },
+
+    ultimoMessaggioOrario(chat){
+        return chat.messages[chat.messages.length - 1].date
     },
 
     chatDisplayer(index) {
